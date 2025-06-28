@@ -1,4 +1,3 @@
-
 import { ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -8,18 +7,18 @@ interface HeroProps {
 
 export const Hero = ({ scrollToSection }: HeroProps) => {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden font-kantumruy">
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-white"></div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="animate-fade-in">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6">
-            Welcome to{' '}
-            <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-              DzDevVox
-            </span>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-8">
+            A Creative Web Agency Building<br />
+            Seamless, Scalable Experience
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Algerian developers crafting modern digital experiences with cutting-edge technology
+          <p className="text-xl md:text-xl text-gray-500 mb-10 max-w-4xl mx-auto font-light leading-relaxed">
+            We design and develop modern, high-performance websites tailored to your goals.<br />
+            From responsive layouts to secure, scalable solutions, our team delivers clean code<br />
+            and creative design that help your business stand out and grow online.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 

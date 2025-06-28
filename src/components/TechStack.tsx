@@ -46,7 +46,7 @@ export const TechStack = () => {
               {technologies.map((tech, index) => (
                 <div 
                   key={`tech-1-${index}`} 
-                  className="flex items-center justify-center h-40 w-40 mx-4"
+                  className="flex items-center justify-center h-60 w-60 mx-2"
                 >
                   <img 
                     src={tech.icon}
@@ -63,7 +63,7 @@ export const TechStack = () => {
               {technologies.map((tech, index) => (
                 <div 
                   key={`tech-2-${index}`} 
-                  className="flex items-center justify-center h-80 w-80 mx-4"
+                  className="flex items-center justify-center h-60 w-60 mx-2"
                 >
                   <img 
                     src={tech.icon}
