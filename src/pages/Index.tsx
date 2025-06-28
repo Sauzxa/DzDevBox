@@ -1,8 +1,8 @@
-
 import { useState, useEffect } from 'react';
 import { ChevronDown, Code, Smartphone, Brain, Users, Mail, Phone, MapPin, Github, Linkedin, Twitter, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const Index = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,6 +38,7 @@ const Index = () => {
               <div className="ml-10 flex items-baseline space-x-8">
                 <button onClick={() => scrollToSection('home')} className="text-gray-700 hover:text-blue-600 transition-colors duration-200">Home</button>
                 <button onClick={() => scrollToSection('services')} className="text-gray-700 hover:text-blue-600 transition-colors duration-200">Services</button>
+                <button onClick={() => scrollToSection('tech-stack')} className="text-gray-700 hover:text-blue-600 transition-colors duration-200">Tech Stack</button>
                 <button onClick={() => scrollToSection('team')} className="text-gray-700 hover:text-blue-600 transition-colors duration-200">Team</button>
                 <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-blue-600 transition-colors duration-200">Contact</button>
               </div>
@@ -61,6 +62,7 @@ const Index = () => {
             <div className="px-2 pt-2 pb-3 space-y-1">
               <button onClick={() => scrollToSection('home')} className="block px-3 py-2 text-gray-700 hover:text-blue-600 transition-colors duration-200">Home</button>
               <button onClick={() => scrollToSection('services')} className="block px-3 py-2 text-gray-700 hover:text-blue-600 transition-colors duration-200">Services</button>
+              <button onClick={() => scrollToSection('tech-stack')} className="block px-3 py-2 text-gray-700 hover:text-blue-600 transition-colors duration-200">Tech Stack</button>
               <button onClick={() => scrollToSection('team')} className="block px-3 py-2 text-gray-700 hover:text-blue-600 transition-colors duration-200">Team</button>
               <button onClick={() => scrollToSection('contact')} className="block px-3 py-2 text-gray-700 hover:text-blue-600 transition-colors duration-200">Contact</button>
             </div>
@@ -109,7 +111,7 @@ const Index = () => {
       {/* Services Section */}
       <section id="services" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className={`text-center mb-16 ${useScrollAnimation('services')}`}>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               We specialize in creating modern digital solutions using the latest technologies
@@ -117,7 +119,7 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white border-0 shadow-md">
+            <Card className={`group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white border-0 shadow-md ${useScrollAnimation('services', 100)}`}>
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-600 transition-colors duration-300">
                   <Code className="text-blue-600 group-hover:text-white transition-colors duration-300" size={32} />
@@ -126,16 +128,10 @@ const Index = () => {
                 <p className="text-gray-600 mb-6">
                   Modern websites and web applications using Next.js, React, TypeScript, and Tailwind CSS
                 </p>
-                <div className="flex flex-wrap gap-2 justify-center">
-                  <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Next.js</span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">React</span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">TypeScript</span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Tailwind</span>
-                </div>
               </CardContent>
             </Card>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white border-0 shadow-md">
+            <Card className={`group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white border-0 shadow-md ${useScrollAnimation('services', 200)}`}>
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-600 transition-colors duration-300">
                   <Smartphone className="text-blue-600 group-hover:text-white transition-colors duration-300" size={32} />
@@ -144,16 +140,10 @@ const Index = () => {
                 <p className="text-gray-600 mb-6">
                   Cross-platform mobile applications using Flutter and modern mobile development practices
                 </p>
-                <div className="flex flex-wrap gap-2 justify-center">
-                  <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Flutter</span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Dart</span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">iOS</span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Android</span>
-                </div>
               </CardContent>
             </Card>
 
-            <Card className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white border-0 shadow-md">
+            <Card className={`group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white border-0 shadow-md ${useScrollAnimation('services', 300)}`}>
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-600 transition-colors duration-300">
                   <Brain className="text-blue-600 group-hover:text-white transition-colors duration-300" size={32} />
@@ -162,22 +152,110 @@ const Index = () => {
                 <p className="text-gray-600 mb-6">
                   Intelligent solutions with agentic AI integration using modern backend technologies
                 </p>
-                <div className="flex flex-wrap gap-2 justify-center">
-                  <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Go</span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">AI/ML</span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">APIs</span>
-                  <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Automation</span>
-                </div>
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* Team Section */}
-      <section id="team" className="py-20 bg-white">
+      {/* Tech Stack Section */}
+      <section id="tech-stack" className="py-20 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className={`text-center mb-16 ${useScrollAnimation('tech-stack')}`}>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Tech Stack</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              We work with cutting-edge technologies to deliver exceptional results
+            </p>
+          </div>
+
+          <div className={`relative ${useScrollAnimation('tech-stack', 100)}`}>
+            <div className="flex animate-scroll-left">
+              <div className="flex items-center space-x-8 mx-8">
+                <div className="flex items-center space-x-3 bg-blue-50 px-6 py-3 rounded-full whitespace-nowrap">
+                  <span className="text-blue-600 font-semibold text-lg">Next.js</span>
+                </div>
+                <div className="flex items-center space-x-3 bg-blue-50 px-6 py-3 rounded-full whitespace-nowrap">
+                  <span className="text-blue-600 font-semibold text-lg">React</span>
+                </div>
+                <div className="flex items-center space-x-3 bg-blue-50 px-6 py-3 rounded-full whitespace-nowrap">
+                  <span className="text-blue-600 font-semibold text-lg">TypeScript</span>
+                </div>
+                <div className="flex items-center space-x-3 bg-blue-50 px-6 py-3 rounded-full whitespace-nowrap">
+                  <span className="text-blue-600 font-semibold text-lg">Tailwind CSS</span>
+                </div>
+                <div className="flex items-center space-x-3 bg-blue-50 px-6 py-3 rounded-full whitespace-nowrap">
+                  <span className="text-blue-600 font-semibold text-lg">Flutter</span>
+                </div>
+                <div className="flex items-center space-x-3 bg-blue-50 px-6 py-3 rounded-full whitespace-nowrap">
+                  <span className="text-blue-600 font-semibold text-lg">Go</span>
+                </div>
+                <div className="flex items-center space-x-3 bg-blue-50 px-6 py-3 rounded-full whitespace-nowrap">
+                  <span className="text-blue-600 font-semibold text-lg">JavaScript</span>
+                </div>
+                <div className="flex items-center space-x-3 bg-blue-50 px-6 py-3 rounded-full whitespace-nowrap">
+                  <span className="text-blue-600 font-semibold text-lg">Node.js</span>
+                </div>
+                <div className="flex items-center space-x-3 bg-blue-50 px-6 py-3 rounded-full whitespace-nowrap">
+                  <span className="text-blue-600 font-semibold text-lg">Python</span>
+                </div>
+                <div className="flex items-center space-x-3 bg-blue-50 px-6 py-3 rounded-full whitespace-nowrap">
+                  <span className="text-blue-600 font-semibold text-lg">MongoDB</span>
+                </div>
+                <div className="flex items-center space-x-3 bg-blue-50 px-6 py-3 rounded-full whitespace-nowrap">
+                  <span className="text-blue-600 font-semibold text-lg">PostgreSQL</span>
+                </div>
+                <div className="flex items-center space-x-3 bg-blue-50 px-6 py-3 rounded-full whitespace-nowrap">
+                  <span className="text-blue-600 font-semibold text-lg">Docker</span>
+                </div>
+              </div>
+              {/* Duplicate for seamless loop */}
+              <div className="flex items-center space-x-8 mx-8">
+                <div className="flex items-center space-x-3 bg-blue-50 px-6 py-3 rounded-full whitespace-nowrap">
+                  <span className="text-blue-600 font-semibold text-lg">Next.js</span>
+                </div>
+                <div className="flex items-center space-x-3 bg-blue-50 px-6 py-3 rounded-full whitespace-nowrap">
+                  <span className="text-blue-600 font-semibold text-lg">React</span>
+                </div>
+                <div className="flex items-center space-x-3 bg-blue-50 px-6 py-3 rounded-full whitespace-nowrap">
+                  <span className="text-blue-600 font-semibold text-lg">TypeScript</span>
+                </div>
+                <div className="flex items-center space-x-3 bg-blue-50 px-6 py-3 rounded-full whitespace-nowrap">
+                  <span className="text-blue-600 font-semibold text-lg">Tailwind CSS</span>
+                </div>
+                <div className="flex items-center space-x-3 bg-blue-50 px-6 py-3 rounded-full whitespace-nowrap">
+                  <span className="text-blue-600 font-semibold text-lg">Flutter</span>
+                </div>
+                <div className="flex items-center space-x-3 bg-blue-50 px-6 py-3 rounded-full whitespace-nowrap">
+                  <span className="text-blue-600 font-semibold text-lg">Go</span>
+                </div>
+                <div className="flex items-center space-x-3 bg-blue-50 px-6 py-3 rounded-full whitespace-nowrap">
+                  <span className="text-blue-600 font-semibold text-lg">JavaScript</span>
+                </div>
+                <div className="flex items-center space-x-3 bg-blue-50 px-6 py-3 rounded-full whitespace-nowrap">
+                  <span className="text-blue-600 font-semibold text-lg">Node.js</span>
+                </div>
+                <div className="flex items-center space-x-3 bg-blue-50 px-6 py-3 rounded-full whitespace-nowrap">
+                  <span className="text-blue-600 font-semibold text-lg">Python</span>
+                </div>
+                <div className="flex items-center space-x-3 bg-blue-50 px-6 py-3 rounded-full whitespace-nowrap">
+                  <span className="text-blue-600 font-semibold text-lg">MongoDB</span>
+                </div>
+                <div className="flex items-center space-x-3 bg-blue-50 px-6 py-3 rounded-full whitespace-nowrap">
+                  <span className="text-blue-600 font-semibold text-lg">PostgreSQL</span>
+                </div>
+                <div className="flex items-center space-x-3 bg-blue-50 px-6 py-3 rounded-full whitespace-nowrap">
+                  <span className="text-blue-600 font-semibold text-lg">Docker</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section id="team" className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className={`text-center mb-16 ${useScrollAnimation('team')}`}>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Team</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Meet the talented Algerian developers behind DzDevVox
@@ -185,8 +263,8 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2, 3, 4, 5, 6].map((member) => (
-              <Card key={member} className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white border-0 shadow-md">
+            {[1, 2, 3, 4, 5, 6].map((member, index) => (
+              <Card key={member} className={`group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white border-0 shadow-md ${useScrollAnimation('team', index * 100)}`}>
                 <CardContent className="p-6 text-center">
                   <div className="w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
                     <Users className="text-white" size={32} />
@@ -209,9 +287,9 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gradient-to-br from-blue-50 to-white">
+      <section id="contact" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className={`text-center mb-16 ${useScrollAnimation('contact')}`}>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Contact Us</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Ready to bring your project to life? Get in touch with our team
@@ -219,7 +297,7 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
-            <div className="space-y-8">
+            <div className={`space-y-8 ${useScrollAnimation('contact', 100)}`}>
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
                   <MapPin className="text-blue-600" size={24} />
@@ -251,7 +329,7 @@ const Index = () => {
               </div>
             </div>
 
-            <Card className="shadow-xl border-0">
+            <Card className={`shadow-xl border-0 ${useScrollAnimation('contact', 200)}`}>
               <CardContent className="p-8">
                 <form className="space-y-6">
                   <div>
