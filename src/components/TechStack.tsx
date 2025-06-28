@@ -1,15 +1,36 @@
-
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export const TechStack = () => {
+  // Define technologies with their icon URLs
   const technologies = [
-    'Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Flutter',
-    'Go', 'JavaScript', 'Node.js', 'Python', 'MongoDB', 'PostgreSQL', 'Docker'
+    { name: 'Docker', icon: '/icons/docker.png' },
+    { name: 'GitHub', icon: '/icons/github.png' },
+    { name: 'Bootstrap', icon: '/icons/bootstrap.png' },
+    { name: 'CSS', icon: '/icons/css.png' },
+    { name: 'Node.js', icon: '/icons/nodejs.png' },
+    { name: 'Go', icon: '/icons/go.png' },
+    { name: 'Figma', icon: '/icons/figma.png' },
+    { name: 'TypeScript', icon: '/icons/ts.png' },
+    { name: 'Redis', icon: '/icons/redis.png' },
+    { name: 'Firebase', icon: '/icons/firebase.png' },
+    { name: 'PostgreSQL', icon: '/icons/postgrase.png' },
+    { name: 'React', icon: '/icons/react.png' },
+    { name: 'Tailwind', icon: '/icons/tailwaand.png' },
+    { name: 'npm', icon: '/icons/npm.png' },
+    { name: 'Python Manager', icon: '/icons/pyManage.png' },
+    { name: 'Dart', icon: '/icons/dart.png' },
+    { name: 'Supabase', icon: '/icons/supabase.png' },
+    { name: 'Flutter', icon: '/icons/Flutter.png' },
+    { name: 'Java', icon: '/icons/Java.png' },
+    { name: 'JavaScript', icon: '/icons/Javascript.png' },
+    { name: 'Linux', icon: '/icons/Linux.png' },
+    { name: 'Python', icon: '/icons/Python.png' },
+    { name: 'VS Code', icon: '/icons/Visual Studio Code.png' }
   ];
 
   return (
     <section id="tech-stack" className="py-20 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-full mx-auto">
         <div className={`text-center mb-16 ${useScrollAnimation('tech-stack')}`}>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Tech Stack</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -17,20 +38,39 @@ export const TechStack = () => {
           </p>
         </div>
 
-        <div className={`relative ${useScrollAnimation('tech-stack', 100)}`}>
-          <div className="flex animate-scroll-left">
-            <div className="flex items-center space-x-8 mx-8">
-              {technologies.map((tech) => (
-                <div key={tech} className="flex items-center space-x-3 bg-blue-50 px-6 py-3 rounded-full whitespace-nowrap">
-                  <span className="text-blue-600 font-semibold text-lg">{tech}</span>
+        <div className="relative w-full overflow-hidden">
+          {/* Marquee container */}
+          <div className="w-[200%] flex">
+            {/* First set of icons */}
+            <div className="w-1/2 flex justify-around items-center animate-marquee">
+              {technologies.map((tech, index) => (
+                <div 
+                  key={`tech-1-${index}`} 
+                  className="flex items-center justify-center h-40 w-40 mx-4"
+                >
+                  <img 
+                    src={tech.icon}
+                    alt={tech.name}
+                    className="h-full w-full object-contain"
+                    title={tech.name}
+                  />
                 </div>
               ))}
             </div>
-            {/* Duplicate for seamless loop */}
-            <div className="flex items-center space-x-8 mx-8">
-              {technologies.map((tech) => (
-                <div key={`${tech}-duplicate`} className="flex items-center space-x-3 bg-blue-50 px-6 py-3 rounded-full whitespace-nowrap">
-                  <span className="text-blue-600 font-semibold text-lg">{tech}</span>
+            
+            {/* Duplicate set - this is what creates the seamless effect */}
+            <div className="w-1/2 flex justify-around items-center animate-marquee">
+              {technologies.map((tech, index) => (
+                <div 
+                  key={`tech-2-${index}`} 
+                  className="flex items-center justify-center h-80 w-80 mx-4"
+                >
+                  <img 
+                    src={tech.icon}
+                    alt={tech.name}
+                    className="h-full w-full object-contain"
+                    title={tech.name}
+                  />
                 </div>
               ))}
             </div>

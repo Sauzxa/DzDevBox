@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -133,6 +132,10 @@ export default {
 					'100%': {
 						transform: 'translateX(-50%)'
 					}
+				},
+				marquee: {
+					'0%': { transform: 'translateX(0%)' },
+					'100%': { transform: 'translateX(-100%)' }
 				}
 			},
 			animation: {
@@ -142,7 +145,8 @@ export default {
 				'fade-in-up': 'fade-in-up 0.8s ease-out',
 				'scale-in': 'scale-in 0.5s ease-out',
 				'slide-in-right': 'slide-in-right 0.6s ease-out',
-				'scroll-left': 'scroll-left 20s linear infinite'
+				'scroll-left': 'scroll-left 15s linear infinite',
+				'marquee': 'marquee 25s linear infinite'
 			}
 		}
 	},
