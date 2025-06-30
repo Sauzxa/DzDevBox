@@ -29,47 +29,44 @@ export const TechStack = () => {
   ];
 
   return (
-    <section id="tech-stack" className="py-20 bg-white overflow-hidden">
+    <section id="tech-stack" className="bg-white overflow-hidden">
       <div className="max-w-full mx-auto">
-        <div className={`text-center mb-16 ${useScrollAnimation('tech-stack')}`}>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Tech Stack</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We work with cutting-edge technologies to deliver exceptional results
-          </p>
-        </div>
-
         <div className="relative w-full overflow-hidden">
           {/* Marquee container */}
           <div className="w-[200%] flex">
             {/* First set of icons */}
             <div className="w-1/2 flex justify-around items-center animate-marquee">
               {technologies.map((tech, index) => (
-                <div 
-                  key={`tech-1-${index}`} 
-                  className="flex items-center justify-center h-60 w-60 mx-2"
+                <div
+                  key={`tech-1-${index}`}
+                  className="flex items-center justify-center mx-2"
+                  style={{ height: '60px', width: '60px', minWidth: '60px', minHeight: '60px' }}
                 >
-                  <img 
+                  <img
                     src={tech.icon}
                     alt={tech.name}
-                    className="h-full w-full object-contain"
+                    className="h-[60px] w-[60px] object-contain"
                     title={tech.name}
+                    style={{ maxHeight: '60px', maxWidth: '60px' }}
                   />
                 </div>
               ))}
             </div>
-            
+
             {/* Duplicate set - this is what creates the seamless effect */}
             <div className="w-1/2 flex justify-around items-center animate-marquee">
               {technologies.map((tech, index) => (
-                <div 
-                  key={`tech-2-${index}`} 
-                  className="flex items-center justify-center h-60 w-60 mx-2"
+                <div
+                  key={`tech-2-${index}`}
+                  className="flex items-center justify-center mx-2"
+                  style={{ height: '60px', width: '60px', minWidth: '60px', minHeight: '60px' }}
                 >
-                  <img 
+                  <img
                     src={tech.icon}
                     alt={tech.name}
-                    className="h-full w-full object-contain"
+                    className="h-[60px] w-[60px] object-contain"
                     title={tech.name}
+                    style={{ maxHeight: '60px', maxWidth: '60px' }}
                   />
                 </div>
               ))}

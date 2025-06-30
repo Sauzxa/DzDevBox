@@ -1,63 +1,45 @@
-import { 
-  Code, 
-  Palette, 
-  Layout, 
-  FileSearch, 
-  BarChart3, 
-  Building2 
-} from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export const Services = () => {
   const servicesAnimation = useScrollAnimation('services');
-  
-  // Pre-calculate animation classes for each service item
-  const animationClass1 = useScrollAnimation('services', 100);
-  const animationClass2 = useScrollAnimation('services', 200);
-  const animationClass3 = useScrollAnimation('services', 300);
-  const animationClass4 = useScrollAnimation('services', 400);
-  const animationClass5 = useScrollAnimation('services', 500);
-  const animationClass6 = useScrollAnimation('services', 600);
-  
+
+  // Define services with their images and titles
   const services = [
     {
-      icon: <Code className="h-10 w-10" />,
-      name: "Website Development",
-      animationClass: animationClass1
+      title: "web\ndevelopment",
+      image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=755&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      animationDelay: 100
     },
     {
-      icon: <Palette className="h-10 w-10" />,
-      name: "Graphic Designing",
-      animationClass: animationClass2
+      title: "graphic\ndesign",
+      image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      animationDelay: 200
     },
     {
-      icon: <Layout className="h-10 w-10" />,
-      name: "UI/UX Web Designing",
-      animationClass: animationClass3
+      title: "Mobile\nApps",
+      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      animationDelay: 300
     },
     {
-      icon: <FileSearch className="h-10 w-10" />,
-      name: "SEO and Content Writing",
-      animationClass: animationClass4
-    },
-    {
-      icon: <BarChart3 className="h-10 w-10" />,
-      name: "Digital Market Planning",
-      animationClass: animationClass5
-    },
-    {
-      icon: <Building2 className="h-10 w-10" />,
-      name: "Business Management",
-      animationClass: animationClass6
+      title: "SEO &\nContent writing",
+      image: "https://images.unsplash.com/photo-1477013743164-ffc3a5e556da?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      animationDelay: 400
     }
   ];
 
   return (
     <section id="services" className="py-20 relative">
-      {/* Dotted pattern background */}
-      <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px] opacity-50"></div>
-      
+      {/* White background with CSS-based dotted pattern */}
+      <div className="absolute inset-0 bg-white"></div>
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `radial-gradient(#000 1px, transparent 1px)`,
+          backgroundSize: '10px 10px',
+          opacity: 0.15
+        }}
+      ></div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className={`text-center mb-16 ${servicesAnimation}`}>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
@@ -66,24 +48,29 @@ export const Services = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
-            <Card 
-              key={index} 
-              className={`group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 rounded-xl border-0 shadow-md overflow-hidden ${service.animationClass}`}
+            <div
+              key={index}
+              className={`relative rounded-lg overflow-hidden cursor-pointer transform transition-transform hover:scale-105 ${useScrollAnimation('services', service.animationDelay)}`}
+              style={{ height: '290px', width: '100%', maxWidth: '215px', margin: '0 auto' }}
             >
-              {/* Semi-circle background with secondary color */}
-              <div className="absolute top-0 inset-x-0 h-32 bg-secondary/20 rounded-[100%_100%_0_0] -translate-y-1/2"></div>
-              
-              <CardContent className="p-8 flex flex-col items-center justify-center text-center relative h-64">
-                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 shadow-md group-hover:bg-primary transition-colors duration-300">
-                  <div className="text-primary group-hover:text-white transition-colors duration-300">
-                    {service.icon}
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900">{service.name}</h3>
-              </CardContent>
-            </Card>
+              {/* Image layer */}
+              <div
+                className="absolute inset-0 bg-cover bg-center bg-gray-800"
+                style={{ backgroundImage: `url(${service.image})` }}
+              ></div>
+
+              {/* Black overlay layer */}
+              <div className="absolute inset-0 bg-black opacity-50"></div>
+
+              {/* Text layer */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <h3 className="text-white text-xl font-bold text-center whitespace-pre-line">
+                  {service.title}
+                </h3>
+              </div>
+            </div>
           ))}
         </div>
       </div>
