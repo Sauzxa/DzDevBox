@@ -1,5 +1,4 @@
 import { ChevronDown } from 'lucide-react';
-import { TechStack } from '@/components/TechStack';
 
 interface HeroProps {
   scrollToSection: (sectionId: string) => void;
@@ -21,11 +20,6 @@ export const Hero = ({ scrollToSection }: HeroProps) => {
             and creative design that help your business stand out and grow online.
           </p>
         </div>
-      </div>
-
-      {/* Tech Stack Component */}
-      <div className="w-full">
-        <TechStack />
       </div>
 
       {/* Scroll Indicator */}
